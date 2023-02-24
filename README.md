@@ -1,6 +1,6 @@
-# ROBOT
+# A Holistic View of Label Noise Transition Matrix in Deep Learning and Beyond (ROBOT)
 
-This repo contains the sample code of our proposed framework Slack Federated Adversarial Training (SFAT) in our paper: Combating Exacerbated Heterogeneity for Robust Models in Federated Learning (ICLR 2023).
+This repo contains the sample code of our proposed ROBOT framework, which is designed for noisy label learning. The title of our paper is: A Holistic View of Label Noise Transition Matrix in Deep Learning and Beyond (ICLR 2023).
 
 Run the code with the following commands:
 ```
