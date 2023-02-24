@@ -1,4 +1,7 @@
 # ROBOT
+
+This repo contains the sample code of our proposed framework Slack Federated Adversarial Training (SFAT) in our paper: Combating Exacerbated Heterogeneity for Robust Models in Federated Learning (ICLR 2023).
+
 Run the code with the following commands:
 ```
 python robot_main.py --dataset cifar10 --corruption_ratio 0.5 --analyze --meta_lr 5e-2 --wandb --start_correction 0 --runs_name 0.45_forward_rce_uniform --loss forward --print_predictions --start_updating_T 20 --max_epoch 85 --outer_obj rce --corruption_type uniform
