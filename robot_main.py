@@ -26,7 +26,6 @@ parser.add_argument('--nesterov', type=bool, default=False)
 parser.add_argument('--weight_decay', type=float, default=5e-4)
 parser.add_argument('--meta_lr', type=float, default=1e-5)
 parser.add_argument('--meta_weight_decay', type=float, default=0.)
-parser.add_argument('--release_layer_num', type=int, default=1000)
 parser.add_argument('--dataset', type=str, default='cifar10')
 parser.add_argument('--loss', type=str, default='ce')
 parser.add_argument('--outer_obj', type=str, default='rce')
@@ -54,7 +53,7 @@ parser.add_argument('--ifplot', action='store_true')
 parser.add_argument('--corruption_ratio', type=float, default=0.)
 parser.add_argument('--T_init', type=float, default=4.5)
 parser.add_argument('--batch_size', type=int, default=100)
-parser.add_argument('--meta_batch_size', type=int, default=128)
+parser.add_argument('--meta_batch_size', type=int, default=1024)
 parser.add_argument('--max_epoch', type=int, default=120)
 parser.add_argument('--start_updating_T', type=int, default=20)
 parser.add_argument('--start_correction', type=int, default=10)
@@ -239,9 +238,6 @@ def meta_weight_net():
                 time1 = time.time()
                 pseudo_net.load_state_dict(net.state_dict())
                 pseudo_net.train()
-                for num, param in enumerate(pseudo_net.parameters()):
-                    if num_layers - num > args.release_layer_num:
-                        param.requires_grad = False
                 old_params = [(n, p) for (n,p) in pseudo_net.named_parameters() if p.requires_grad]
                 print(f"iteration {iteration}, len {len(old_params)}")
                 #get output
@@ -351,18 +347,16 @@ def meta_weight_net():
             device=args.device,
         )
 
-        print('Epoch: {}, (Loss, Accuracy) Test: ({:.4f}, {:.2%}) LR: {}, T error: {}'.format(
+        print('Epoch: {}, (Loss, Accuracy) Test: ({:.4f}, {:.2%}) LR: {}'.format(
             epoch,
             test_loss,
             test_accuracy,
             lr,
-            estimate_error
         ))
         log_dict = {
             "train_acc": train_acc,
             "test_accuracy": test_accuracy,
             "test_loss": test_loss,
-            "estimate_error": estimate_error,
         }
         if args.wandb:
             wandb.log(log_dict)
