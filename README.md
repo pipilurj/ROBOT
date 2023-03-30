@@ -34,4 +34,4 @@ python robot_main.py  --dataset cifar100 --corruption_ratio 0.45 --analyze --met
 
 ### Example Results
 
-![Results 1](src/results.jpg)
+![Results 1](src/result.jpg)
