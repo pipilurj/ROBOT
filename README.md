@@ -1,13 +1,8 @@
 # A Holistic View of Label Noise Transition Matrix in Deep Learning and Beyond (ROBOT)
 
-<<<<<<< HEAD
-This repo contains the sample code of our proposed ROBOT framework, which is designed for noisy label learning. The title of our paper is: A Holistic View of Label Noise Transition Matrix in Deep Learning and Beyond (ICLR 2023).
-=======
-![Main Figure](src/robot.jpg)
-
 This repository contains the source code for the paper A Holistic View of Label Noise Transition Matrix in Deep Learning and Beyond.
 Our paper is available on OpenReview: [link](https://openreview.net/pdf?id=aFzaXRImWE).
-
+![Main Figure](src/robot.jpg)
 ## Table of Contents
 
 - [Installation](#installation)
