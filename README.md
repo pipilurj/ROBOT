@@ -20,7 +20,6 @@ To reproduce the results from our paper, follow these steps:
 
 1. Download the datasets (cifar10, cifar100).
 2. Train the model by running the following commands:
->>>>>>> 92afee6 (=)
 
 Run the code with the following commands:
 ```
